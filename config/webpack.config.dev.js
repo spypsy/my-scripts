@@ -235,12 +235,17 @@ module.exports = {
             // it's runtime that would otherwise processed through "file" loader.
             // Also exclude `html` and `json` extensions so they get processed
             // by webpacks internal loaders.
-            exclude: [/\.js$/, /\.html$/, /\.json$/],
+            exclude: [/\.js$/, /\.html$/, /\.json$/, /\.(graphql|gql)$/],
             loader: require.resolve('file-loader'),
             options: {
               name: 'static/media/[name].[hash:8].[ext]',
             },
           },
+          {
+            test: /\.(graphql|gql)$/,
+            exclude: /node_modules/,
+            loader: require.resolve('graphql-tag/loader')
+          }
         ],
       },
       // ** STOP ** Are you adding a new loader?
