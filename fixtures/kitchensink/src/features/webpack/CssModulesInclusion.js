@@ -8,7 +8,8 @@
  */
 
 import React from 'react';
+import styles from './assets/style.module.css';
 
 export default () => (
-  <span id="feature-public-url">{process.env.PUBLIC_URL}.</span>
+  <p className={styles.cssModulesInclusion}>CSS Modules are working!</p>
 );
